@@ -29,7 +29,7 @@ public class Hangman {
 // while loop to add each word from imported file to our List
 		
 		while (scan.hasNext()) {
-			words.add(scan.nextLine());
+		   words.add(scan.nextLine());
 		}
 		
 // Instantiate our random object for random word selection 
@@ -40,17 +40,14 @@ public class Hangman {
 // the nextInt method, and then passing the size of our words list as an arg.
 		
 		word = words.get(rand.nextInt(words.size()));
-		
 	}
-		
 		else {
 			System.out.println("Player 1, please enter your word.");
 			word = keyboard.nextLine();
 			System.out.println("\n\\n\n\n\n\n\n\n\n\n\n\n\n\\n\n\n\n\n\n\n\n\n\n");
 			System.out.println("Ready for player 2! Good luck!");
 		}
-		
-	
+		// System.out.println(word);
 		
 // Creating a new list of the alphabet which will allow us to mark off all chars(letters)
 // in which the user guesses. We use "Character" for the char Wrapper class.
@@ -67,6 +64,7 @@ public class Hangman {
 			
 			if (wrongCount >= 6) {
 				System.out.println("You lose!");
+				System.out.println("The word was: " + word);
 				break;
 			}
 
@@ -93,8 +91,6 @@ public class Hangman {
 				System.out.println("Nope! Try again.");
 			}
 		}
-		
-		//System.out.println("Wow - you win!");
 	}
 
 	private static void printHangedMan(Integer wrongCount) {
@@ -108,7 +104,7 @@ public class Hangman {
 		if (wrongCount >= 2) {
 			System.out.print("\\ ");
 			if (wrongCount >= 3) {
-				System.out.print(" /");
+				System.out.print("/");
 		}
 			else {
 				System.out.println("");
@@ -143,7 +139,6 @@ public class Hangman {
 		playerGuesses.add(letterGuess.charAt(0));
 		
 		return word.contains(letterGuess);
-		
 	}
 
 		

@@ -12,7 +12,9 @@ public class Hangman {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		Scanner keyboard = new Scanner(System.in);
-
+		
+// Prompt for user to select how many players: 
+		
 		System.out.println("1 or 2 players?");
 		String players = keyboard.nextLine();
 		
@@ -47,8 +49,7 @@ public class Hangman {
 			System.out.println("\n\\n\n\n\n\n\n\n\n\n\n\n\n\\n\n\n\n\n\n\n\n\n\n");
 			System.out.println("Ready for player 2! Good luck!");
 		}
-		// System.out.println(word);
-		
+				
 // Creating a new list of the alphabet which will allow us to mark off all chars(letters)
 // in which the user guesses. We use "Character" for the char Wrapper class.
 		
@@ -59,7 +60,6 @@ public class Hangman {
 		Integer wrongCount = 0;
 
 		while(true) {
-			
 			printHangedMan(wrongCount);
 			
 			if (wrongCount >= 6) {
@@ -67,7 +67,7 @@ public class Hangman {
 				System.out.println("The word was: " + word);
 				break;
 			}
-
+			
 			printWordState(word, playerGuesses);
 			if(!getPlayerGuess(keyboard, word, playerGuesses)){
 				wrongCount++;
@@ -85,7 +85,6 @@ public class Hangman {
 			if(keyboard.nextLine().equals(word)) {
 				System.out.println("You win!");
 				break;
-
 			}
 			else {
 				System.out.println("Nope! Try again.");
@@ -99,7 +98,6 @@ public class Hangman {
 	    if (wrongCount >= 1) {
 	      System.out.println(" O");
 	    }
-	    
 	    if (wrongCount >= 2) {
 	      System.out.print("\\ ");
 	      if (wrongCount >= 3) {
@@ -127,7 +125,6 @@ public class Hangman {
 	    System.out.println("");
 	  }
 
-			
 // Method to get player's guess.		
 // letterGuess will serve as variable to hold user input. To proof the parsing of only 
 // one letter, we will call the add method and pass letterGuess as an arg, using charAt
@@ -142,14 +139,14 @@ public class Hangman {
 		return word.contains(letterGuess);
 	}
 
-		
 // Simple method which uses for loop to iterates through random word selected. If player 
 // guesses the  char contained in the word, char will be displayed (single print statement). 
 // Else,we will print a dash to show char has NOT been guessed yet. 
 		
 	private static boolean printWordState(String word, List<Character> playerGuesses) {
 		
-// int correctCount variable will track correct number of guesses		
+// int correctCount variable will track correct number of guesses
+		
 		int correctCount = 0;
 		for (int i = 0; i < word.length(); i++) {
 			if (playerGuesses.contains(word.charAt(i))) {
@@ -160,10 +157,8 @@ public class Hangman {
 				System.out.print("-");
 			}
 		}
-		
 		System.out.println();
 		
 		return (word.length() == correctCount);
-
 	}
 }

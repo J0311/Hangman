@@ -111,7 +111,7 @@ public class Hangman {
 	    if (wrongCount >= 4) {
 	      System.out.println(" |");
 	    }
-	    
+		
 	    if (wrongCount >= 5) {
 	      System.out.print("/ ");
 	      if (wrongCount >= 6) {
@@ -153,6 +153,7 @@ public class Hangman {
 				System.out.print(word.charAt(i));
 				correctCount++;
 			}
+			
 			else {
 				System.out.print("-");
 			}

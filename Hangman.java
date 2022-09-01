@@ -35,7 +35,6 @@ public class Hangman {
 		}
 		
 // Instantiate our random object for random word selection 
-			
 		
 		Random rand = new Random();
 		

@@ -98,6 +98,7 @@ public class Hangman {
 	    if (wrongCount >= 1) {
 	      System.out.println(" O");
 	    }
+		
 	    if (wrongCount >= 2) {
 	      System.out.print("\\ ");
 	      if (wrongCount >= 3) {
